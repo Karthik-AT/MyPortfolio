@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karthik Anand | Java Full Stack Developer</title>
+    <meta name="description" content="Portfolio of Karthik Anand — Java Full Stack Developer crafting scalable, elegant web applications with Java, Spring Boot & React. Based in Bengaluru, India.">
+    <meta name="keywords" content="Karthik, Java Developer, Full Stack, Spring Boot, React, Portfolio, Bengaluru">
+    <meta name="author" content="Karthik Anand">
+    <meta property="og:title" content="Karthik Anand | Full Stack Developer">
+    <meta property="og:description" content="Building scalable web applications with Java, Spring Boot & React.">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- DevIcons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/devicon.min.css">
+
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <!-- CURSOR -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- CANVAS BG -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- LOADER -->
+    <div class="loader" id="loader">
+        <div class="loader-inner">
+            <div class="loader-logo">&lt;K/&gt;</div>
+            <div class="loader-bar"><div class="loader-fill" id="loaderFill"></div></div>
+            <span class="loader-text" id="loaderText">Initializing...</span>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo" id="navLogo">
+                <span class="bracket">&lt;</span><span class="kname">K</span><span class="bracket">/&gt;</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="./Karthik_Anand_Resume.pdf" class="nav-cta" download="Karthik_Anand_Resume" id="resumeBtn">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    Resume
+                </a>
+            </div>
+            <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-bg-glow"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span class="badge-dot"></span>
+                    Available for opportunities
+                </div>
+                <p class="hero-greeting">Hello World, I'm</p>
+                <h1 class="hero-name">
+                    <span class="name-line">Karthik</span>
+                    <span class="name-line accent-line">Anand T</span>
+                </h1>
+                <div class="hero-typewriter">
+                    <span class="tw-static">I build </span>
+                    <span class="tw-dynamic" id="typewriterText"></span>
+                    <span class="tw-cursor">|</span>
+                </div>
+                <p class="hero-desc">
+                    A passionate <strong>Java Full Stack Developer</strong> crafting scalable, elegant solutions using <strong>Spring Boot</strong>, <strong>React</strong>, and modern web technologies.
+                </p>
+                <div class="hero-cta-group">
+                    <a href="#projects" class="btn btn-primary" id="heroProjectsBtn">
+                        <span>View My Work</span>
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                    </a>
+                    <a href="#contact" class="btn btn-glass" id="heroContactBtn">
+                        <span>Let's Talk</span>
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-num" data-target="3">0</span>
+                        <span class="stat-suffix">+</span>
+                        <span class="stat-label">Projects Built</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-num" data-target="8">0</span>
+                        <span class="stat-suffix">+</span>
+                        <span class="stat-label">Technologies</span>
+                    </div>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-num" data-target="100">0</span>
+                        <span class="stat-suffix">%</span>
+                        <span class="stat-label">Dedication</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-card-glow"></div>
+                <div class="code-terminal" id="codeTerminal">
+                    <div class="terminal-header">
+                        <div class="terminal-dots">
+                            <span class="t-dot red"></span>
+                            <span class="t-dot yellow"></span>
+                            <span class="t-dot green"></span>
+                        </div>
+                        <span class="terminal-title">Developer.java</span>
+                        <span class="terminal-status">● LIVE</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="term-line"><span class="ln">1</span><span class="t-pink">public class</span> <span class="t-blue">Developer</span> {</div>
+                        <div class="term-line"><span class="ln">2</span></div>
+                        <div class="term-line"><span class="ln">3</span>&nbsp;&nbsp;<span class="t-green">String</span> <span class="t-white">name</span> = <span class="t-orange">"Karthik Anand T"</span>;</div>
+                        <div class="term-line"><span class="ln">4</span>&nbsp;&nbsp;<span class="t-green">String</span> <span class="t-white">role</span> = <span class="t-orange">"Java Full Stack Dev"</span>;</div>
+                        <div class="term-line"><span class="ln">5</span>&nbsp;&nbsp;<span class="t-green">String</span> <span class="t-white">city</span> = <span class="t-orange">"Mangalore"</span>;</div>
+                        <div class="term-line"><span class="ln">6</span></div>
+                        <div class="term-line"><span class="ln">7</span>&nbsp;&nbsp;<span class="t-green">String[]</span> <span class="t-white">education</span> = {<span class="t-orange">"SDIT"</span>};</div>
+                        <div class="term-line"><span class="ln">8</span>&nbsp;&nbsp;<span class="t-purple">boolean</span> <span class="t-white">lovesCode</span> = <span class="t-cyan">true</span>;</div>
+                        <div class="term-line"><span class="ln">9</span></div>
+                        <div class="term-line"><span class="ln">10</span>&nbsp;&nbsp;<span class="t-green">String[]</span> <span class="t-white">stack</span> = {</div>
+                        <div class="term-line"><span class="ln">11</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-orange">"Java"</span>, <span class="t-orange">"JDBC"</span>,</div>
+                        <div class="term-line"><span class="ln">12</span>&nbsp;&nbsp;&nbsp;&nbsp;<span class="t-orange">"Hibernate"</span>, <span class="t-orange">"MySQL"</span></div>
+                        <div class="term-line"><span class="ln">13</span>&nbsp;&nbsp;};</div>
+                        <div class="term-line"><span class="ln">14</span>}</div>
+                        <div class="term-line term-cursor-line"><span class="ln">15</span>&nbsp;&nbsp;<span class="t-cursor">&#9608;</span></div>
+                    </div>
+                </div>
+                <div class="tech-orb orb-1">&#9749;</div>
+                <div class="tech-orb orb-2">&#9883;</div>
+                <div class="tech-orb orb-3">&#127807;</div>
+                <div class="tech-orb orb-4">&#128190;</div>
+            </div>
+        </div>
+        <div class="scroll-indicator" id="scrollIndicator">
+            <div class="scroll-wheel"></div>
+            <span>Scroll down</span>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="section" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">// 01. about</span>
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Turning ideas into reality, one line at a time</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-image-col reveal">
+                    <div class="about-image-wrap">
+                        <div class="about-avatar">K</div>
+                        <div class="avatar-glow-ring"></div>
+                        <div class="about-status-badge">
+                            <span class="status-dot"></span>
+                            Open to Work
+                        </div>
+                    </div>
+                    <div class="about-quick-info">
+                        <div class="quick-info-item">
+                            <span class="qi-icon">&#128205;</span>
+                            <div>
+                                <span class="qi-label">Location</span>
+                                <span class="qi-value">Mangalore / Bangalore</span>
+                            </div>
+                        </div>
+                        <div class="quick-info-item">
+                            <span class="qi-icon">&#127891;</span>
+                            <div>
+                                <span class="qi-label">Education</span>
+                                <span class="qi-value">Shree Devi Institute of Technology</span>
+                            </div>
+                        </div>
+                        <div class="quick-info-item">
+                            <span class="qi-icon">&#128188;</span>
+                            <div>
+                                <span class="qi-label">Role</span>
+                                <span class="qi-value">Intern @ Tap Academy</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="about-text-col reveal">
+                    <h3 class="about-headline">Building Scalable Web Apps <span class="gradient-text">with Passion</span></h3>
+                    <p class="about-para">
+                        I'm a <strong>Computer Science Engineering undergraduate</strong> with hands-on internship and project experience in <strong>Java Full Stack Development</strong>. With a strong foundation in OOP, Data Structures, and DBMS, I have a passion for building scalable web applications.
+                    </p>
+                    <p class="about-para">
+                        Currently working as a Java Full Stack Web Development Intern at <strong>Tap Academy, Bangalore</strong>, I specialize in the <strong>Java ecosystem</strong> — working with Java, Hibernate, JDBC, Servlets, REST APIs, SQL, HTML, and CSS.
+                    </p>
+                    <div class="about-traits">
+                        <div class="trait-card">
+                            <span class="trait-icon">&#127919;</span>
+                            <span class="trait-label">Problem Solver</span>
+                        </div>
+                        <div class="trait-card">
+                            <span class="trait-icon">&#9889;</span>
+                            <span class="trait-label">Fast Learner</span>
+                        </div>
+                        <div class="trait-card">
+                            <span class="trait-icon">&#129309;</span>
+                            <span class="trait-label">Team Player</span>
+                        </div>
+                        <div class="trait-card">
+                            <span class="trait-icon">&#128161;</span>
+                            <span class="trait-label">Creative Thinker</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section" id="projects">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">// 02. projects</span>
+                <h2 class="section-title">Featured Projects</h2>
+                <p class="section-subtitle">A showcase of what I've built &amp; shipped</p>
+            </div>
+
+            <div class="projects-grid">
+                <div class="project-card reveal" id="projCard1">
+                    <div class="project-glow"></div>
+                    <div class="project-num">01</div>
+                    <div class="project-icon-wrap">&#128722;</div>
+                    <h3 class="project-title">E-Commerce Web Application</h3>
+                    <p class="project-desc">A full-stack e-commerce platform with product listing, cart, and order management. Built features like user authentication, checkout, and order tracking.</p>
+                    <div class="project-tags">
+                        <span class="tag tag-java">Java</span>
+                        <span class="tag tag-spring">JDBC</span>
+                        <span class="tag tag-db">MySQL</span>
+                        <span class="tag tag-react">HTML/CSS</span>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://github.com/Karthik-AT" target="_blank" class="project-link project-github">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal project-featured" id="projCard2">
+                    <div class="project-glow featured-glow"></div>
+                    <div class="project-badge">Featured</div>
+                    <div class="project-num">02</div>
+                    <div class="project-icon-wrap">&#128680;</div>
+                    <h3 class="project-title">Offline-First Emergency Comm. System</h3>
+                    <p class="project-desc">Emergency communication and monitoring system with real-time alert handling, live GPS tracking, and offline-first functionality using localStorage with automatic sync.</p>
+                    <div class="project-tags">
+                        <span class="tag tag-java">Java</span>
+                        <span class="tag tag-js">JavaScript</span>
+                        <span class="tag tag-db">MySQL</span>
+                        <span class="tag tag-css">HTML/CSS</span>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://github.com/Karthik-AT" target="_blank" class="project-link project-github">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card reveal" id="projCard3">
+                    <div class="project-glow"></div>
+                    <div class="project-num">03</div>
+                    <div class="project-icon-wrap">&#127829;</div>
+                    <h3 class="project-title">Food Delivery App</h3>
+                    <p class="project-desc">A full-stack food delivery platform with real-time order tracking, restaurant listings, cart management, and secure payment integration.</p>
+                    <div class="project-tags">
+                        <span class="tag tag-react">React</span>
+                        <span class="tag tag-spring">Spring Boot</span>
+                        <span class="tag tag-db">MySQL</span>
+                        <span class="tag tag-api">REST API</span>
+                    </div>
+                    <div class="project-footer">
+                        <a href="https://github.com/Karthik-AT" target="_blank" class="project-link project-github">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" id="skills">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">// 03. skills</span>
+                <h2 class="section-title">Tech Arsenal</h2>
+                <p class="section-subtitle">Technologies &amp; tools I wield every day</p>
+            </div>
+
+            <div class="skills-universe reveal">
+                <div class="skill-group">
+                    <div class="skill-group-header">
+                        <span class="skill-group-icon">&#128187;</span>
+                        <h3>Core Tech & Languages</h3>
+                    </div>
+                    <div class="skill-pills">
+                        <div class="skill-pill java"><i class="devicon-java-plain colored"></i><span>Java</span></div>
+                        <div class="skill-pill mysql"><i class="devicon-mysql-plain colored"></i><span>SQL</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-header">
+                        <span class="skill-group-icon">&#127912;</span>
+                        <h3>Frontend</h3>
+                    </div>
+                    <div class="skill-pills">
+                        <div class="skill-pill html5"><i class="devicon-html5-plain colored"></i><span>HTML</span></div>
+                        <div class="skill-pill css3"><i class="devicon-css3-plain colored"></i><span>CSS</span></div>
+                        <div class="skill-pill javascript"><i class="devicon-javascript-plain colored"></i><span>JavaScript</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-header">
+                        <span class="skill-group-icon">&#9881;&#65039;</span>
+                        <h3>Backend</h3>
+                    </div>
+                    <div class="skill-pills">
+                        <div class="skill-pill spring"><i class="devicon-java-plain colored"></i><span>JDBC</span></div>
+                        <div class="skill-pill hibernate"><i class="devicon-hibernate-plain colored"></i><span>Hibernate</span></div>
+                        <div class="skill-pill java"><i class="devicon-java-plain colored"></i><span>Servlets</span></div>
+                        <div class="skill-pill spring"><i class="devicon-java-plain colored"></i><span>REST APIs</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-header">
+                        <span class="skill-group-icon">&#128451;&#65039;</span>
+                        <h3>Database</h3>
+                    </div>
+                    <div class="skill-pills">
+                        <div class="skill-pill mysql"><i class="devicon-mysql-plain colored"></i><span>MySQL</span></div>
+                    </div>
+                </div>
+
+                <div class="skill-group">
+                    <div class="skill-group-header">
+                        <span class="skill-group-icon">&#128736;&#65039;</span>
+                        <h3>Developer Tools</h3>
+                    </div>
+                    <div class="skill-pills">
+                        <div class="skill-pill git"><i class="devicon-git-plain colored"></i><span>Git</span></div>
+                        <div class="skill-pill github"><i class="devicon-github-original colored"></i><span>GitHub</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-tag">// 04. contact</span>
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Have a project in mind? Let's build something amazing together!</p>
+            </div>
+
+            <div class="contact-layout reveal">
+                <div class="contact-info">
+                    <h3 class="contact-tagline">Let's Create <span class="gradient-text">Something Epic</span> &#128640;</h3>
+                    <p class="contact-blurb">I'm always excited to discuss new opportunities, collaborate on projects, or just have a friendly conversation about tech!</p>
+
+                    <div class="contact-cards">
+                        <a href="mailto:karthik933k@gmail.com" class="contact-card" id="emailCard">
+                            <div class="cc-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div class="cc-content">
+                                <span class="cc-label">Email</span>
+                                <span class="cc-value">karthik933k@gmail.com</span>
+                            </div>
+                            <span class="cc-arrow">&#8594;</span>
+                        </a>
+                        <a href="tel:+919353493357" class="contact-card" id="phoneCard">
+                            <div class="cc-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 13.6a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 10.59a16 16 0 0 0 6 6l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            </div>
+                            <div class="cc-content">
+                                <span class="cc-label">Phone</span>
+                                <span class="cc-value">+91 9353493357</span>
+                            </div>
+                            <span class="cc-arrow">&#8594;</span>
+                        </a>
+                        <div class="contact-card static-card" id="locationCard">
+                            <div class="cc-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                            <div class="cc-content">
+                                <span class="cc-label">Location</span>
+                                <span class="cc-value">Mangalore / Bangalore</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-row">
+                        <a href="https://www.linkedin.com/in/karthik-anand-toolahalli/" target="_blank" class="social-btn" id="linkedinBtn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                            LinkedIn
+                        </a>
+                        <a href="https://github.com/Karthik-AT" target="_blank" class="social-btn" id="githubBtn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                            GitHub
+                        </a>
+                        <a href="https://hackerrank.com/karthik-AT" target="_blank" class="social-btn" id="hackerrankBtn">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0a12 12 0 1 0 12 12A12 12 0 0 0 12 0zm0 18.2a6.2 6.2 0 1 1 6.2-6.2 6.2 6.2 0 0 1-6.2 6.2z"/></svg>
+                            HackerRank
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form-wrap">
+                    <form id="contactForm" class="contact-form" novalidate>
+                        <h3 class="form-title">Send a Message</h3>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cname">Your Name</label>
+                                <input type="text" id="cname" placeholder="John Doe" required autocomplete="name">
+                                <span class="field-focus-bar"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="mobile">Phone Number</label>
+                                <input type="tel" id="mobile" placeholder="+91 XXXXX XXXXX" required autocomplete="tel">
+                                <span class="field-focus-bar"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cemail">Email Address</label>
+                            <input type="email" id="cemail" placeholder="john@example.com" required autocomplete="email">
+                            <span class="field-focus-bar"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" placeholder="Project Collaboration / Hiring / Just Saying Hi">
+                            <span class="field-focus-bar"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" placeholder="Tell me about your project or just say hello!"></textarea>
+                            <span class="field-focus-bar"></span>
+                        </div>
+                        <button type="submit" class="btn-submit" id="submitBtn">
+                            <span>Send Message &#128640;</span>
+                        </button>
+                        <div class="form-success" id="formSuccess">
+                            &#9989; Message sent! I'll get back to you soon.
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-top">
+                <a href="#home" class="footer-logo">&lt;K/&gt;</a>
+                <p class="footer-tagline">Building the web, one commit at a time.</p>
+            </div>
+            <div class="footer-divider"></div>
+            <div class="footer-bottom">
+                <p class="footer-copy">&#169; 2026 <span class="gradient-text">Karthik Anand T</span>. Crafted with &#10084;&#65039; in Mangalore.</p>
+                <a href="#home" class="back-top-btn" id="backToTop">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+                    Top
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- FLOATING BACK TO TOP -->
+    <button class="fab-top" id="fabTop" aria-label="Back to top">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+    </button>
+
+    <script>
+    /* ====== LOADER ====== */
+    const loaderFill = document.getElementById('loaderFill');
+    const loaderText = document.getElementById('loaderText');
+    const loader = document.getElementById('loader');
+    const msgs = ['Initializing...', 'Loading skills...', 'Rendering creativity...', 'Welcome!'];
+    let prog = 0, mi = 0;
+    const li = setInterval(() => {
+        prog += Math.random() * 18 + 5;
+        if (prog >= 100) { prog = 100; clearInterval(li); }
+        loaderFill.style.width = Math.min(prog, 100) + '%';
+        const newMi = Math.min(Math.floor(prog / 30), 3);
+        if (newMi > mi) { mi = newMi; loaderText.textContent = msgs[mi]; }
+        if (prog >= 100) {
+            setTimeout(() => {
+                loader.classList.add('hide');
+                document.body.classList.add('loaded');
+                startCounters();
+            }, 400);
+        }
+    }, 110);
+
+    /* ====== CANVAS STARS ====== */
+    (function() {
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+        let W = canvas.width = window.innerWidth;
+        let H = canvas.height = window.innerHeight;
+        const stars = Array.from({length: 180}, () => ({
+            x: Math.random() * W, y: Math.random() * H,
+            r: Math.random() * 1.4 + 0.2,
+            t: Math.random() * Math.PI * 2,
+            sp: Math.random() * 0.4 + 0.05
+        }));
+        function draw() {
+            ctx.clearRect(0, 0, W, H);
+            stars.forEach(s => {
+                s.t += s.sp * 0.025;
+                const a = 0.25 + Math.abs(Math.sin(s.t)) * 0.65;
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(180,190,255,${a * 0.55})`;
+                ctx.fill();
+            });
+            requestAnimationFrame(draw);
+        }
+        draw();
+        window.addEventListener('resize', () => {
+            W = canvas.width = window.innerWidth;
+            H = canvas.height = window.innerHeight;
+        });
+    })();
+
+    /* ====== CURSOR ====== */
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    let mx = 0, my = 0, rx = 0, ry = 0;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+    (function ac() {
+        dot.style.cssText = `left:${mx}px;top:${my}px`;
+        rx += (mx - rx) * 0.13; ry += (my - ry) * 0.13;
+        ring.style.cssText = `left:${rx}px;top:${ry}px`;
+        requestAnimationFrame(ac);
+    })();
+    document.querySelectorAll('a,button,.project-card,.skill-pill').forEach(el => {
+        el.addEventListener('mouseenter', () => ring.classList.add('big'));
+        el.addEventListener('mouseleave', () => ring.classList.remove('big'));
+    });
+
+    /* ====== TYPEWRITER ====== */
+    const phrases = ['Scalable Web Apps','RESTful APIs','Beautiful UIs','Full-Stack Solutions','Java Applications'];
+    let pi = 0, ci = 0, del = false;
+    const tw = document.getElementById('typewriterText');
+    function type() {
+        const p = phrases[pi];
+        if (!del) {
+            tw.textContent = p.slice(0, ci + 1); ci++;
+            if (ci === p.length) { del = true; setTimeout(type, 2000); return; }
+        } else {
+            tw.textContent = p.slice(0, ci - 1); ci--;
+            if (ci === 0) { del = false; pi = (pi + 1) % phrases.length; }
+        }
+        setTimeout(type, del ? 50 : 85);
+    }
+    setTimeout(type, 1200);
+
+    /* ====== COUNTERS ====== */
+    function startCounters() {
+        document.querySelectorAll('.stat-num').forEach(el => {
+            const target = +el.dataset.target;
+            let c = 0, step = target / 45;
+            const t = setInterval(() => {
+                c = Math.min(c + step, target);
+                el.textContent = Math.floor(c);
+                if (c >= target) clearInterval(t);
+            }, 38);
+        });
+    }
+
+    /* ====== 3D TILT ====== */
+    document.querySelectorAll('.project-card').forEach(card => {
+        card.addEventListener('mousemove', e => {
+            const r = card.getBoundingClientRect();
+            const x = ((e.clientY - r.top - r.height/2) / (r.height/2)) * -7;
+            const y = ((e.clientX - r.left - r.width/2) / (r.width/2)) * 7;
+            card.style.transform = `perspective(900px) rotateX(${x}deg) rotateY(${y}deg) translateY(-8px) scale(1.02)`;
+            const glow = card.querySelector('.project-glow');
+            if (glow) {
+                glow.style.left = (e.clientX - r.left) + 'px';
+                glow.style.top = (e.clientY - r.top) + 'px';
+            }
+        });
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+        });
+    });
+
+    /* ====== NAVBAR ====== */
+    const navbar = document.getElementById('navbar');
+    const fabTop = document.getElementById('fabTop');
+    window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 50);
+        fabTop && fabTop.classList.toggle('show', window.scrollY > 400);
+        const si = document.getElementById('scrollIndicator');
+        if (si) si.style.opacity = window.scrollY > 120 ? '0' : '1';
+    });
+    if (fabTop) fabTop.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+
+    const sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', () => {
+        const sy = window.scrollY + 130;
+        sections.forEach(s => {
+            const lnk = document.querySelector(`.nav-link[href="#${s.id}"]`);
+            if (lnk) lnk.classList.toggle('active', sy >= s.offsetTop && sy < s.offsetTop + s.offsetHeight);
+        });
+    });
+
+    const hb = document.getElementById('hamburger');
+    const nl = document.getElementById('navLinks');
+    hb.addEventListener('click', () => { hb.classList.toggle('active'); nl.classList.toggle('open'); });
+    nl.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', () => { hb.classList.remove('active'); nl.classList.remove('open'); }));
+
+    /* ====== SCROLL REVEAL ====== */
+    const obs = new IntersectionObserver((entries) => {
+        entries.forEach((e, i) => {
+            if (e.isIntersecting) { setTimeout(() => e.target.classList.add('active'), i * 80); obs.unobserve(e.target); }
+        });
+    }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    /* ====== FORM ====== */
+    document.getElementById('contactForm').addEventListener('submit', e => {
+        e.preventDefault();
+        const btn = document.getElementById('submitBtn');
+        const suc = document.getElementById('formSuccess');
+        btn.textContent = 'Sending... ⏳';
+        btn.disabled = true;
+        setTimeout(() => {
+            btn.innerHTML = '<span>Send Message &#128640;</span>';
+            btn.disabled = false;
+            suc.classList.add('show');
+            e.target.reset();
+            setTimeout(() => suc.classList.remove('show'), 4000);
+        }, 1500);
+    });
+    </script>
+</body>
+</html>
